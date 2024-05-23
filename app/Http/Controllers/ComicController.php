@@ -42,7 +42,7 @@ class ComicController extends Controller
         $data = $request->all();
         $newComic = new Comic();
         $newComic->title = $data['title'];
-        $newComic->thumb = $data['thumb'];
+        $newComic->thumb = 'https://picsum.photos/200';
         $newComic->price = $data['price'];
         $newComic->series = $data['series'];
         $newComic->sale_date = $data['sale_date'];
