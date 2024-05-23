@@ -3,7 +3,7 @@
     <div class="container">
         <div class="col">
             <div class="card my-4">
-                <img src="{{ $comic->thumb }}" class="card-img-top" alt="...">
+                <img src="https://picsum.photos/200" class="card-img-top" alt="...">
                 <div class="card-body">
                     <span class="fw-bold card-text">{{ $comic->title }}</span>
                     <p class="card-text">{{ $comic->description }}</p>
