@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3">
                 <label for="sale_date" class="form-label">SALE DATE</label>
-                <input type="text" class="form-control" id="sale_date" name="sale_date">
+                <input type="date" class="form-control" id="sale_date" name="sale_date">
             </div>
             <div class="mb-3">
                 <label for="type" class="form-label">COMIC TYPE</label>
@@ -30,7 +30,7 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">DESCRIPTION</label>
-                <textarea name="description" id="description" rows="5" cols="50"></textarea>
+                <textarea name="description" id="description" rows="5" cols="50" class="form-control"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

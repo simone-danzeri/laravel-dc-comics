@@ -14,6 +14,16 @@
                         <p class="card-text">Series: {{ $comic->series }}</p>
                         <p class="card-text">{{ $comic->sale_date }}</p>
                         <small class="card-text">Comic type: {{ $comic->type }}</small>
+                        <div class="card-text my-4">
+                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}">
+                                <button class="btn btn-primary">More info</button>
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}">
+                                <button class="btn btn-primary">Edit info</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

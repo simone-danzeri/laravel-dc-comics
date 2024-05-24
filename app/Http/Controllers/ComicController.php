@@ -39,15 +39,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $formData = $request->all();
         $newComic = new Comic();
-        $newComic->title = $data['title'];
+        // $newComic->title = $data['title'];
         $newComic->thumb = 'https://picsum.photos/200';
-        $newComic->price = $data['price'];
-        $newComic->series = $data['series'];
-        $newComic->sale_date = $data['sale_date'];
-        $newComic->type = $data['type'];
-        $newComic->description = $data['description'];
+        // $newComic->price = $data['price'];
+        // $newComic->series = $data['series'];
+        // $newComic->sale_date = $data['sale_date'];
+        // $newComic->type = $data['type'];
+        // $newComic->description = $data['description'];
+        $newComic->fill($formData);
         $newComic->save();
         return redirect()->route('comics.show', $newComic->id);
     }
@@ -60,7 +61,7 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        $comic = Comic::find($id);
+        $comic = Comic::findOrFail($id);
         $data = [
             'comic' => $comic
         ];
