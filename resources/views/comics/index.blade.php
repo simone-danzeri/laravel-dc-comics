@@ -20,7 +20,7 @@
                             </a>
                         </div>
                         <div class="card-text">
-                            <a href="{{ route('comics.show', ['comic' => $comic->id]) }}">
+                            <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">
                                 <button class="btn btn-primary">Edit info</button>
                             </a>
                         </div>
