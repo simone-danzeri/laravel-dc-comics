@@ -93,7 +93,12 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $formData = $request->all();
+        $comic = Comic::findOrFail($id);
+        // La funzione update() mi fa il Mass Assignment dei dati presi dal forum e me li mette come nuovi valori degli attibuti del comic selezoinato tramite $id
+        $comic->update($formData);
+        // dd($formData, $comic);
+        return redirect()->route('comics.show', ['comic' => $id]);
     }
 
     /**
