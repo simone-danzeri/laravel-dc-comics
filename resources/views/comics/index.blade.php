@@ -28,7 +28,7 @@
                             <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger js-delete-btn" data-comic-title = "{{ $comic->title }}">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -43,15 +43,16 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="confirmModalLabel">Do you really want to delete this comic?</h1>
+          <h1 class="modal-title fs-5" id="confirmModalLabel"></h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             {{-- qui ci andrà il testo della modale --}}
+            Do you really want to delete this comic?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger" id="modal-confirm-delete">Delete</button>
+          <button type="button" class="btn btn-danger" id="modalDeleteBtn">Delete</button>
         </div>
       </div>
     </div>
