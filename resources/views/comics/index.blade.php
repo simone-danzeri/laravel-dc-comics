@@ -9,20 +9,27 @@
                     <img src="https://picsum.photos/200" class="card-img-top" alt="...">
                     <div class="card-body">
                         <span class="fw-bold card-text">{{ $comic->title }}</span>
-                        <p class="card-text">{{ $comic->description }}</p>
+                        {{-- <p class="card-text">{{ $comic->description }}</p> --}}
                         <p class="card-text">Price: {{ $comic->price }} £</p>
                         <p class="card-text">Series: {{ $comic->series }}</p>
-                        <p class="card-text">{{ $comic->sale_date }}</p>
-                        <small class="card-text">Comic type: {{ $comic->type }}</small>
-                        <div class="card-text my-4">
+                        {{-- <p class="card-text">{{ $comic->sale_date }}</p> --}}
+                        {{-- <small class="card-text">Comic type: {{ $comic->type }}</small> --}}
+                        <div class="card-text my-2">
                             <a href="{{ route('comics.show', ['comic' => $comic->id]) }}">
                                 <button class="btn btn-primary">More info</button>
                             </a>
                         </div>
-                        <div class="card-text">
+                        <div class="card-text my-2">
                             <a href="{{ route('comics.edit', ['comic' => $comic->id]) }}">
                                 <button class="btn btn-primary">Edit info</button>
                             </a>
+                        </div>
+                        <div class="card-text my-2">
+                            <form action="{{ route('comics.destroy', ['comic' => $comic->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>
