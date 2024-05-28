@@ -39,6 +39,27 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $validate = $request->validate(
+            [
+                'title' => 'required|max:99',
+                'description' => 'nullable|min:10|max:5000',
+                'thumb' => 'required',
+                'price' => 'required',
+                'series' => 'required|max:99',
+                'sale_date' => 'required',
+                'type' => 'required|max:49'
+            ],
+            [
+                'title.required' => 'Please insert a title for this new comic',
+                'description.min' => 'The description must be at least 10 characters long',
+                'description.max' => "The description can't be more than 5000 characters long",
+                'thumb.required' => "Plese insert the comic's image URL",
+                'price.required' => "Plese insert the comic's price",
+                'series.required' => "Plese insert this comic's serie",
+                'sale_date.required' => "Plese insert when they released this comic",
+                'type.required' => "Plese insert this comic's type",
+            ]
+        );
         $formData = $request->all();
         $newComic = new Comic();
         // $newComic->title = $data['title'];

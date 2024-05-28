@@ -2,6 +2,21 @@
 @section('content')
     <h1 class="text-center my-3">Add a new comic to your collection</h1>
     <div class="container py-5">
+
+        {{-- ERRORS --}}
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        {{-- /ERRORS --}}
+
         <form action="{{ route('comics.store') }}" method="post">
             @csrf
             <div class="mb-3">
