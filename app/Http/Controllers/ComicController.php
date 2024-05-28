@@ -42,22 +42,22 @@ class ComicController extends Controller
         $validate = $request->validate(
             [
                 'title' => 'required|max:99',
-                'description' => 'nullable|min:10|max:5000',
                 'thumb' => 'required',
                 'price' => 'required',
                 'series' => 'required|max:99',
                 'sale_date' => 'required',
-                'type' => 'required|max:49'
+                'type' => 'required|max:49',
+                'description' => 'nullable|min:10|max:5000',
             ],
             [
                 'title.required' => 'Please insert a title for this new comic',
-                'description.min' => 'The description must be at least 10 characters long',
-                'description.max' => "The description can't be more than 5000 characters long",
                 'thumb.required' => "Plese insert the comic's image URL",
                 'price.required' => "Plese insert the comic's price",
                 'series.required' => "Plese insert this comic's serie",
                 'sale_date.required' => "Plese insert when they released this comic",
                 'type.required' => "Plese insert this comic's type",
+                'description.min' => 'The description must be at least 10 characters long',
+                'description.max' => "The description can't be more than 5000 characters long"
             ]
         );
         $formData = $request->all();
@@ -114,6 +114,27 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validate = $request->validate(
+            [
+                'title' => 'required|max:99',
+                'thumb' => 'required',
+                'price' => 'required',
+                'series' => 'required|max:99',
+                'sale_date' => 'required',
+                'type' => 'required|max:49',
+                'description' => 'nullable|min:10|max:5000'
+            ],
+            [
+                'title.required' => 'Please insert a title for this comic',
+                'thumb.required' => "Plese insert the comic's image URL",
+                'price.required' => "Plese insert the comic's price",
+                'series.required' => "Plese insert this comic's serie",
+                'sale_date.required' => "Plese insert when they released this comic",
+                'type.required' => "Plese insert this comic's type",
+                'description.min' => 'The description must be at least 10 characters long',
+                'description.max' => "The description can't be more than 5000 characters long"
+            ]
+        );
         $formData = $request->all();
         $comic = Comic::findOrFail($id);
         // La funzione update() mi fa il Mass Assignment dei dati presi dal forum e me li mette come nuovi valori degli attibuti del comic selezoinato tramite $id
